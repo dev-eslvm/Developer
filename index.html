@@ -246,27 +246,25 @@
 
         #reset-splash-btn {
             position: fixed;
-            top: 16px;
-            left: 16px;
+            top: 20px;
+            left: 20px;
             z-index: 500;
             display: flex;
             align-items: center;
-            gap: 7px;
-            padding: 9px 18px;
-            border-radius: 40px;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
             background: var(--glass);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             color: var(--cyan);
-            font-family: 'Cairo', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
             cursor: pointer;
             opacity: 0;
             pointer-events: none;
             transform: translateY(-10px);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         #reset-splash-btn.visible {
@@ -277,13 +275,13 @@
 
         #reset-splash-btn:hover {
             border-color: var(--cyan);
-            box-shadow: 0 0 22px rgba(0, 242, 254, 0.4);
-            transform: translateY(-2px);
+            box-shadow: 0 0 22px rgba(0, 242, 254, 0.5);
+            transform: scale(1.1) rotate(-45deg);
         }
 
         #reset-splash-btn svg {
-            width: 15px;
-            height: 15px;
+            width: 20px;
+            height: 20px;
             fill: var(--cyan);
         }
 
@@ -1177,8 +1175,10 @@
                 gap: 12px;
             }
             #reset-splash-btn {
-                padding: 8px 14px;
-                font-size: 12px;
+                top: 14px;
+                left: 14px;
+                width: 38px;
+                height: 38px;
             }
         }
     </style>
@@ -1201,10 +1201,9 @@
         <button class="enter-button" id="enterButton">ادخــــــل</button>
     </div>
 
-    <!-- Reset Splash Overlay Button -->
-    <button id="reset-splash-btn">
+    <!-- Reset Splash Overlay Button (Refresh Only Icon) -->
+    <button id="reset-splash-btn" title="إعادة العرض">
         <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-        إعادة العرض
     </button>
 
     <!-- Main Content Container -->
@@ -1353,7 +1352,7 @@
                             <form id="siteOrderForm" onsubmit="return handleOrderSubmit(event)">
                                 <div class="form-group">
                                     <label class="form-label">الاسم المميز للموقع</label>
-                                    <input type="text" class="form-input" name="siteName" placeholder="مثال: SulTex" required>
+                                    <input type="text" class="form-input" name="siteName" placeholder="مثال : SulTex" required>
                                 </div>
 
                                 <div class="form-group">
