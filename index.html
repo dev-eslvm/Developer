@@ -120,13 +120,6 @@
         .form-submit{width:100%;padding:16px;background:var(--gradient);border:none;border-radius:14px;color:#04121f;font-family:'Cairo',sans-serif;font-size:16px;font-weight:800;letter-spacing:0.5px;cursor:pointer;transition:all 0.35s cubic-bezier(0.175,0.885,0.32,1.275);margin-top:8px;box-shadow:0 8px 24px rgba(0,242,254,0.35),inset 0 1px 0 rgba(255,255,255,0.5);}
         .form-submit:hover{box-shadow:0 10px 32px rgba(0,242,254,0.55);transform:translateY(-2px) scale(1.01);}
         .whatsapp-note{text-align:center;font-size:12.5px;color:rgba(230,242,255,0.9);margin-top:16px;line-height:1.8;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,0.9);}
-        .footer{margin-top:18px;margin-bottom:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;flex-shrink:0;width:100%;}
-        .footer-text{color:var(--text);font-size:13px;letter-spacing:0.5px;font-weight:700;text-align:center;text-shadow:0 2px 4px rgba(0,0,0,0.9);}
-        .footer-phone-link{color:var(--cyan);text-decoration:underline;text-decoration-color:rgba(0,242,254,0.7);text-decoration-thickness:1.5px;text-underline-offset:4px;transition:all 0.3s ease;}
-        .footer-phone-link:hover{color:#ffffff;text-shadow:0 0 12px rgba(0,242,254,0.9);}
-        .footer-qr{width:74px;height:74px;padding:6px;background:var(--glass);border:1px solid rgba(0,242,254,0.5);border-radius:16px;cursor:pointer;transition:all 0.35s cubic-bezier(0.175,0.885,0.32,1.275);box-shadow:0 0 18px rgba(0,242,254,0.25);display:flex;align-items:center;justify-content:center;text-decoration:none;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
-        .footer-qr img{width:100%;height:100%;object-fit:contain;border-radius:8px;}
-        .footer-qr:hover{transform:scale(1.14) rotate(-3deg);border-color:var(--cyan);box-shadow:0 0 30px rgba(0,242,254,0.65),0 0 50px rgba(79,172,254,0.4);}
         @media (max-width: 480px) {
             .splash-image-container{width:175px;height:175px;}
             .splash-brand{font-size:12px;top:58px;letter-spacing:4px;}
@@ -228,6 +221,11 @@
                                 <div class="social-info"><div class="social-name">WhatsApp</div><div class="social-handle"></div></div>
                                 <svg class="social-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
                             </a>
+                            <a href="https://www.facebook.com/eslam.ahmed.755852" target="_blank" class="social-link">
+                                <div class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook"></div>
+                                <div class="social-info"><div class="social-name">Facebook</div><div class="social-handle"></div></div>
+                                <svg class="social-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                            </a>
                             <a href="mailto:eslam159951ahmed@gmail.com" class="social-link">
                                 <div class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Gmail"></div>
                                 <div class="social-info"><div class="social-name">Gmail</div><div class="social-handle"></div></div>
@@ -303,14 +301,6 @@
                     </div>
                 </div>
             </div>
-            <div class="footer" id="footer">
-                <span class="footer-text">📞 Dev 👨‍💻: Eslam Ahmed /
-                    <a href="tel:01286692757" class="footer-phone-link">01286692757</a>
-                </span>
-                <a href="https://wa.me/201286692757" target="_blank" class="footer-qr">
-                    <img src="images/eslam-qr.png" alt="QR Code">
-                </a>
-            </div>
         </div>
     </div>
     <script>
@@ -322,7 +312,7 @@
         function playHoverSound(){if(!audioCtx||audioCtx.state!=='running')return;try{const oscillator=audioCtx.createOscillator();const gainNode=audioCtx.createGain();oscillator.connect(gainNode);gainNode.connect(audioCtx.destination);oscillator.frequency.setValueAtTime(650,audioCtx.currentTime);oscillator.frequency.exponentialRampToValueAtTime(950,audioCtx.currentTime+0.08);gainNode.gain.setValueAtTime(0.015,audioCtx.currentTime);gainNode.gain.exponentialRampToValueAtTime(0.0001,audioCtx.currentTime+0.08);oscillator.start(audioCtx.currentTime);oscillator.stop(audioCtx.currentTime+0.08);}catch(e){}}
         function playUnlockSound(){initAudio();if(!audioCtx||audioCtx.state!=='running')return;try{const oscillator=audioCtx.createOscillator();const gainNode=audioCtx.createGain();oscillator.connect(gainNode);gainNode.connect(audioCtx.destination);oscillator.frequency.setValueAtTime(320,audioCtx.currentTime);oscillator.frequency.exponentialRampToValueAtTime(1150,audioCtx.currentTime+0.35);gainNode.gain.setValueAtTime(0.08,audioCtx.currentTime);gainNode.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+0.35);oscillator.start(audioCtx.currentTime);oscillator.stop(audioCtx.currentTime+0.35);}catch(e){}}
         window.addEventListener('pointerdown',(e)=>{initAudio();playSoftClickSound();});
-        document.addEventListener('mouseover',(e)=>{const target=e.target.closest('a, button, input, select, textarea, .nav-arrow, .nav-dot, .footer-qr, .social-link');if(target){playHoverSound();}});
+        document.addEventListener('mouseover',(e)=>{const target=e.target.closest('a, button, input, select, textarea, .nav-arrow, .nav-dot, .social-link');if(target){playHoverSound();}});
         const particlesContainer=document.getElementById('particles');
         for(let i=0;i<55;i++){const particle=document.createElement('div');particle.className='particle';particle.style.left=Math.random()*100+'%';particle.style.top=Math.random()*100+'%';particle.style.width=(Math.random()*3+1)+'px';particle.style.height=particle.style.width;particlesContainer.appendChild(particle);gsap.to(particle,{y:-110-Math.random()*220,x:(Math.random()-0.5)*110,opacity:Math.random()*0.65+0.25,duration:3.5+Math.random()*4.5,repeat:-1,delay:Math.random()*3,ease:'none'});}
         const codeRainContainer=document.getElementById('codeRain');
@@ -339,7 +329,7 @@
         let splashActive=true;let entering=false;let charIndex=0;let typingTimer=null;
         const textToType=" Hi";const typingSpeed=120;
         function typeEffect(){if(!splashActive)return;if(charIndex<textToType.length){const currentChar=textToType.charAt(charIndex);typingTextElement.textContent+=currentChar;if(currentChar!==' '){playKeyPressSound();}charIndex++;const dynamicDelay=currentChar===' '?typingSpeed*1.5:typingSpeed+(Math.random()*30-15);typingTimer=setTimeout(typeEffect,dynamicDelay);}else{clearTimeout(typingTimer);typingTimer=setTimeout(()=>{gsap.to(typingCursor,{opacity:0.25,duration:0.4});gsap.to(enterButton,{opacity:1,y:0,scale:1,duration:0.7,ease:'back.out(1.8)',onComplete:()=>enterButton.classList.add('visible')});},350);}}
-        function startEntry(){if(entering||!splashActive)return;entering=true;enterButton.classList.remove('visible');playUnlockSound();const splashRect=splashImage.getBoundingClientRect();const scaleX=window.innerWidth/(splashRect.width||210);const scaleY=window.innerHeight/(splashRect.height||210);const targetScale=Math.max(scaleX,scaleY)*1.6;const tl=gsap.timeline({onComplete:()=>{splashActive=false;entering=false;resetBtn.classList.add('visible');}});tl.to(enterButton,{opacity:0,scale:0.85,duration:0.25,ease:'power2.in'},0).to(typingTextElement,{opacity:0,y:-18,duration:0.3,ease:'power2.in'},0).to(typingCursor,{opacity:0,duration:0.2},0).to('.splash-brand',{opacity:0,y:-14,duration:0.3,ease:'power2.in'},0).to('.splash-grid',{opacity:0,duration:0.4},0).to(splashImage,{scale:targetScale,duration:1,ease:'power3.inOut'},0.1).to(splashScreen,{opacity:0,duration:0.45,ease:'power2.inOut'},'-=0.35').set(splashScreen,{display:'none'}).add(()=>{mainContent.classList.add('active');}).fromTo(bgImage,{scale:1.3,filter:'blur(30px) brightness(0.2)'},{scale:1.05,filter:'blur(20px) brightness(0.85) saturate(1.15)',duration:1.5,ease:'power2.out'}).fromTo('.about-image',{scale:0,y:24},{scale:1,y:0,duration:0.9,ease:'back.out(1.7)'},'-=1.2').fromTo('.about-name',{y:28,opacity:0},{y:0,opacity:1,duration:0.7,ease:'power2.out'},'-=0.55').fromTo('.page-nav',{y:-22,opacity:0},{y:0,opacity:1,duration:0.6,ease:'power2.out'},'-=0.4').fromTo('.footer',{opacity:0,y:20},{opacity:1,y:0,duration:0.5},'-=0.25');}
+        function startEntry(){if(entering||!splashActive)return;entering=true;enterButton.classList.remove('visible');playUnlockSound();const splashRect=splashImage.getBoundingClientRect();const scaleX=window.innerWidth/(splashRect.width||210);const scaleY=window.innerHeight/(splashRect.height||210);const targetScale=Math.max(scaleX,scaleY)*1.6;const tl=gsap.timeline({onComplete:()=>{splashActive=false;entering=false;resetBtn.classList.add('visible');}});tl.to(enterButton,{opacity:0,scale:0.85,duration:0.25,ease:'power2.in'},0).to(typingTextElement,{opacity:0,y:-18,duration:0.3,ease:'power2.in'},0).to(typingCursor,{opacity:0,duration:0.2},0).to('.splash-brand',{opacity:0,y:-14,duration:0.3,ease:'power2.in'},0).to('.splash-grid',{opacity:0,duration:0.4},0).to(splashImage,{scale:targetScale,duration:1,ease:'power3.inOut'},0.1).to(splashScreen,{opacity:0,duration:0.45,ease:'power2.inOut'},'-=0.35').set(splashScreen,{display:'none'}).add(()=>{mainContent.classList.add('active');}).fromTo(bgImage,{scale:1.3,filter:'blur(30px) brightness(0.2)'},{scale:1.05,filter:'blur(20px) brightness(0.85) saturate(1.15)',duration:1.5,ease:'power2.out'}).fromTo('.about-image',{scale:0,y:24},{scale:1,y:0,duration:0.9,ease:'back.out(1.7)'},'-=1.2').fromTo('.about-name',{y:28,opacity:0},{y:0,opacity:1,duration:0.7,ease:'power2.out'},'-=0.55').fromTo('.page-nav',{y:-22,opacity:0},{y:0,opacity:1,duration:0.6,ease:'power2.out'},'-=0.4');}
         function resetToSplash(){window.location.reload();}
         enterButton.addEventListener('click',startEntry);
         resetBtn.addEventListener('click',resetToSplash);
@@ -351,7 +341,6 @@
         nextBtn.addEventListener('click',()=>goToPage(currentPage+1));
         dots.forEach((dot,i)=>{dot.addEventListener('click',()=>goToPage(i));});
 
-        // منع السكرول بعجلة الماوس كلياً لمنع تغيير الصفحات تلقائياً
         window.addEventListener('wheel', function(e) {
             e.preventDefault();
         }, { passive: false });
